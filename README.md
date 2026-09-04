@@ -32,7 +32,8 @@ python seeders/seed.py
 Seeder membuat 2 role, permissions, akun, fakultas, 6 departemen, 6 himpunan, Pemira 2026 dengan 12 fase, 2 koalisi, 3 kandidat approved, 3 TPS, 15 mahasiswa, registrasi pemilih, suara, 3 berita, 3 pengumuman, dan pengaturan default.
 
 ## Kredensial demo
-`admin / admin123` (admin) dan `operator / operator123` (operator). Ganti password sebelum deployment.
+Akun administrator dan operator disediakan melalui proses seeding awal.
+Gunakan kredensial yang telah dikonfigurasi secara aman dan ubah password sebelum deployment.
 
 ## Backup
 Gunakan **Admin → Backup → Buat Backup**. Simpan hasil di lokasi aman, batasi akses download, dan jadwalkan backup berkala. Jangan commit database atau kredensial ke repositori publik.
