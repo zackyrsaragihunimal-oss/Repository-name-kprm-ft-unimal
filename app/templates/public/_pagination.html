@@ -1,0 +1,1 @@
+{% if pagination|default(false) %}<nav class="mt-5"><ul class="pagination justify-content-center">{% for p in pagination.iter_pages() %}{% if p %}<li class="page-item {{ 'active' if p==pagination.page else '' }}"><a class="page-link" href="{{ url_for(request.endpoint,page=p) }}">{{ p }}</a></li>{% endif %}{% endfor %}</ul></nav>{% endif %}

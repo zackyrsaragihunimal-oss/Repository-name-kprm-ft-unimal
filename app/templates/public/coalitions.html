@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}Koalisi · KPRM{% endblock %}
+
+{% block content %}
+
+<section class="inner-hero">
+    <div class="container">
+        <span class="eyebrow">KOLABORASI ORGANISASI</span>
+        <h1>Koalisi</h1>
+        <p>Gagasan terbaik lahir dari kolaborasi.</p>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+
+        <div class="row g-4">
+
+            {% for c in coalitions|default([]) %}
+
+            <div class="col-md-6">
+
+                <div class="coalition-card h-100">
+
+                    <div class="coalition-logo">
+
+                        {% if c.logo_url %}
+                            <img
+                                src="{{ url_for('public.uploaded_file', filename=c.logo) if c.logo else url_for('static', filename='img/placeholder.svg') }}"
+                                alt="{{ c.name }}"
+                            >
+                        {% else %}
+                            <i class="fa-solid fa-people-group"></i>
+                        {% endif %}
+
+                    </div>
+
+                    <div>
+
+                        <span class="code-pill">
+                            {{ c.code }}
+                        </span>
+
+                        <h3>
+                            {{ c.name }}
+                        </h3>
+
+                        <p class="text-muted">
+                            {{ c.description or 'Tidak ada deskripsi.' }}
+                        </p>
+
+                        <small class="text-muted">
+
+                            {% if c.organizations %}
+                                {{ c.organizations.count() }}
+                            {% else %}
+                                0
+                            {% endif %}
+
+                            organisasi ·
+
+                            {% if c.candidates %}
+                                {{ c.candidates.count() }}
+                            {% else %}
+                                0
+                            {% endif %}
+
+                            kandidat
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-state">
+                Belum ada koalisi.
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
